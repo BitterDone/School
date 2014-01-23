@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
-/**	Github test
+/**
  * COSC 3550 Homework 1
  * @author Dan Bitter
  * Used code from Dr. Slattery's Driving1.java file
