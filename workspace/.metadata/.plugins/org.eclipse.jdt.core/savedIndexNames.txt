@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+/Users/danielbitter/Documents/Github/School/workspace/.metadata/.plugins/org.eclipse.jdt.core
+339274877.index
+631078565.index
+1724059073.index
