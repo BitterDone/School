@@ -1,0 +1,25 @@
+public class dump {
+/*
+	if(first!=test){
+		if((i+1)>=len){
+			test=s.charAt(i);
+			//print("char: "+cha(test));
+		}else{
+			test=s.charAt(i+1);
+		}
+		//print("First: "+cha(first));
+		//print("Test: "+cha(test));
+	}else if(first==test){
+		pivot = i;
+		print("Pivot: "+pivot);
+		if(i>=(len-1)){
+			test=s.charAt(i);
+			//print("char: "+cha(test));
+		}else{
+			test=s.charAt(i+1);
+		}
+		print("First: "+cha(first));
+		print("Test: "+cha(test));
+	}
+	*/
+}

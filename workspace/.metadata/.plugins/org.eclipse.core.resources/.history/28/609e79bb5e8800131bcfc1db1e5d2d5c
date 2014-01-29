@@ -1,0 +1,155 @@
+
+public class palindrome {
+	
+	public static boolean palin = false;
+	public static String res = "Untouched result";
+
+	public static void main(String[] args) {
+		String test1 = "skyfall";
+		String test2 = "minimum";
+		String test23 = "racecar";
+		
+		String test3 = "itsaracecar";
+		String test4 = "itsacar";
+		String break1 = "y";
+		String break2 = "";
+		
+		String ans = "Untouched answer";
+		ans = longestPalindromePrefix(test2);
+		print(ans);
+	}
+	
+	public static String longestPalindromePrefix(String s){
+		print("\nEnter longestPalindromePrefix");
+		//String res = "Untouched result";
+		boolean cont = false;
+		int index = 0;
+		char first = '\u0021';// !
+		char test = '\u0024';// $
+		
+		int len = 0;
+		len = s.length();
+		//print("Len: "+len);
+		
+		if(len == 0){
+			print("\nEmpty string");
+			res = "";
+			cont = false;
+		}else if(len==1){
+			print("len=1");
+			res = s;
+			cont = false;
+		}else if(len>1){
+			print("len= "+len);
+			first = s.charAt(0);
+			test = s.charAt(1);
+			print("First: "+first);
+			print("Test: "+test);
+			cont = true;
+		}
+		
+		if(cont){
+			print("Continuing...");
+			for(int i=1;i<len;i++){
+				test = s.charAt(i);
+				if( (first!=test) && (!palin) ){
+					print("Bad: "+cha(test));
+				}else if((first==test)  && (!palin) ){
+					index = i;
+					print("First,Test: "+first+":"+test);
+					print("Palin: "+palin+". Calling check: "
+							+s+" "+index);
+					check(s, index);
+					//print("Good: "+cha(test));
+					//print("Pivot: "+pivot);
+				}
+				
+			}//end for
+		}
+		
+		return res;
+	}//end longestPalindromePrefix
+	
+	public static boolean check(String st, int piv){
+		print("\nEnter check()");
+		boolean comp = true;
+		boolean problem = false;
+		int origIndex = 0;
+		int backIndex = 0;
+		origIndex = piv;
+		backIndex = piv;
+		print("backIndex: "+backIndex);
+		char front = '\u0024';
+		front = st.charAt(0);
+		char back = '\u0024';
+		back = st.charAt(piv);
+		print("Front, back: "+front+":"+back);
+		
+		if((piv%2)==0){
+			piv = piv/2;
+			print("Even piv: "+piv+"\n");
+		}else if((piv%2)==1){
+			piv = (piv/2) + 1;
+			print("Odd piv: "+piv+"\n");
+//left off here
+		}else{
+			print("Irregular pivot: " + piv+"\n");
+		}
+		
+		for(int i=0;i<=piv;i++){
+			front=st.charAt(i);
+			if((front!=back) && comp){
+				print("Front != back: "+front+":"+back);
+				comp=false;
+				problem = true;
+				palin=false;
+			}else if((front==back) && comp){
+				print("Front==back: "+front+":"+back);
+				if(piv>(i+1)){
+					backIndex=backIndex-1;
+					back=st.charAt(backIndex);
+					comp=true;
+				}else if(piv==i){
+					print("pivot reached. piv==i: "+piv+":"+i);
+					comp=false;
+					palin=true;
+				}else if(piv==(i+1)){
+					print("\npivot reached. piv==i+1: "+piv+":"+i);
+					print("Pivot char: "+st.charAt(piv));
+					comp=false;
+					palin=true;
+				}else{
+					print("?");
+				}
+			}else{
+				if(problem){
+					print("Something went wrong");
+				}else if(palin && !problem){
+					print("origIndex: "+origIndex);
+					res = st.substring(0, origIndex+1);
+					print("Finished! Palindrome :"
+							+res);
+					
+				}else{
+					print("Unsure");
+				}
+				
+				//print("Front, back: "+front+" "+back);
+				//print("Front: "+cha(front));
+				
+			}//end if
+		}//end for
+		print("Palindrome: "+palin+"\n");
+		return palin;
+	}
+	
+	public static void print(String s){
+		System.out.println(s);
+	}
+	
+	public static String cha(char c){
+		return Character.toString(c);
+	}
+
+}
+

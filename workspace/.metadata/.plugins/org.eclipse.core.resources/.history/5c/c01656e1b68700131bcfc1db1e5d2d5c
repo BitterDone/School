@@ -1,0 +1,105 @@
+
+public class palindrome {
+
+	public static void main(String[] args) {
+		String test1 = "skyfall";
+		String test2 = "minimum";
+		String test3 = "itsaracecar";
+		String test4 = "itsacar";
+		String break1 = "y";
+		String break2 = "";
+		
+		String ans = "Untouched answer";
+		ans = longestPalindromePrefix(test2);
+		print(ans);
+	}
+	
+	public static String longestPalindromePrefix(String s){
+		String res = "Untouched result";
+		boolean cont = false;
+		int pivot = 0;
+		char first = '\u0021';// !
+		first = s.charAt(0);
+
+		char test = '\u0024';// $
+		first = s.charAt(0);
+		
+		int len = 0;
+		len = s.length();
+		
+		if(len == 0){
+			print("\nEmpty string");
+			res = "";
+			cont = false;
+		}else if(len==1){
+			print("len=1");
+			res = s;
+			cont = false;
+		}else if(len>1){
+			print("len= "+len);
+			test = s.charAt(1);
+			cont = true;
+		}
+		
+		if(cont){
+			print("Continuing...");
+			for(int i=1;i<len;i++){
+				test = s.charAt(i);
+				if(first!=test){
+					print("Bad: "+cha(test));
+				}else if(first==test){
+					pivot = i;
+					check(s, pivot);
+					print("Good: "+cha(test));
+					print("Pivot: "+pivot);
+				}
+				
+			}//end for
+		}
+		
+		return res;
+	}//end longestPalindromePrefix
+	
+	public static void check(String st, int piv){
+		boolean palin = false;
+		boolean comp = true;
+		char front = '\u0024';
+		front = st.charAt(0);
+		char back = '\u0024';
+		back = st.charAt(piv);
+		
+		if((piv%2)==0){
+			piv = piv + 0;
+		}else if((piv%2)==1){
+			piv = (piv/2) + 1;
+		}else{
+			print("Irregular pivot: " + piv);
+		}
+		
+			for(int i=0;i<piv;i++){
+				if((front!=back) && comp){
+					comp=false;
+					palin=false;
+				}else if((front==back) && comp){
+					if(piv>(i++)){
+						front=st.charAt(i++);
+						back=st.charAt(piv--);
+					}else if(piv==(i++)){
+						comp=false;
+						palin=true;
+					}
+				}
+			}
+		
+	}
+	
+	public static void print(String s){
+		System.out.println(s);
+	}
+	
+	public static String cha(char c){
+		return Character.toString(c);
+	}
+
+}
+

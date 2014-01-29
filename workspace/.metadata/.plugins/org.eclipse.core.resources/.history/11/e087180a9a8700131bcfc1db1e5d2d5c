@@ -1,0 +1,16 @@
+
+public class palindrome {
+
+	public static void main(String[] args) {
+		String test1 = "Skyfall";
+		String test2 = "Minimum";
+		String test3 = "Itsaracecar";
+		String test4 = "itsacar";
+		
+
+
+		
+	}
+
+}
+

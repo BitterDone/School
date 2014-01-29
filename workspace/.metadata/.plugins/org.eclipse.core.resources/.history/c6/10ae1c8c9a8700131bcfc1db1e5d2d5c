@@ -1,0 +1,21 @@
+
+public class palindrome {
+
+	public static void main(String[] args) {
+		String test1 = "Skyfall";
+		String test2 = "Minimum";
+		String test3 = "Itsaracecar";
+		String test4 = "itsacar";
+		
+		longestPalindromePrefix(test1);
+	}
+	
+	public static void longestPalindromePrefix(String s){
+		char tes = s.charAt(0);
+		int len = s.length();
+		char[] stor = new char[len];
+		System.out.println(tes);
+	}
+
+}
+
